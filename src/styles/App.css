@@ -1,0 +1,16 @@
+.app-container {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .content {
+    flex-grow: 1;
+    padding: 20px;
+  }
+  
+  .main-image {
+    width: 50%;
+    align-self: flex-end;
+    margin-bottom: 20px;
+  }
+  

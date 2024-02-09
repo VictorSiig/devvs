@@ -1,0 +1,118 @@
+:root {
+  --bg: #f8f8ff;
+  --nav-bg: #004175;
+  --primary: #2f71d6;
+  --nav-item-color: #d0d9e2;
+  --nav-border: #8f9a9e;
+  --white: #fff;
+  --gap: 0.5rem;
+  --item-height: 1.75rem;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Mulish", sans-serif;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: var(--bg);
+  margin: 0;
+}
+
+.navigation {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 100vh;
+  padding: 1rem 0;
+  background: var(--nav-bg);
+  box-shadow: 0px 4px 16px 0px rgba(148, 156, 169, 0.15);
+  border-radius: 0 0.75rem 0.75rem 0;
+  user-select: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 150px;
+}
+
+.nav-list {
+  display: flex;
+  flex-direction: column;
+  list-style-type: none;
+  width: 100%;
+  gap: var(--gap);
+  position: relative;
+}
+
+.nav-list > li {
+  width: 90%;
+  display: flex;
+  justify-content: flex-start;
+  text-align: left;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.nav-list > li > a {
+  display: flex;
+  justify-content: flex-start;
+  text-align: left;
+  flex-direction: column;
+  align-items: flex-end;
+  max-width: 4rem;
+  gap: 0.5rem;
+  width: 100%;
+  padding-left: 4rem;
+  color: var(--nav-item-color);
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+}
+
+.nav-list > li > a > svg {
+  width: 2rem;
+  height: 2rem;
+  stroke: var(--nav-item-color);
+  transition: all 0.2s ease-in-out;
+}
+
+.nav-list > li:hover > a {
+  color: var(--primary);
+}
+
+.nav-list > li:hover > a > svg {
+  stroke: var(--primary);
+}
+
+.active-bar {
+  position: absolute;
+  left: 100%;
+  top: 0;
+  min-height: var(--item-height);
+  width: 8px;
+  background: var(--primary);
+  z-index: 1;
+  transition: 0.5s;
+}
+
+.nav-list > li:nth-child(1).active ~ .active-bar {
+  transform: translateY(calc(0));
+}
+
+.nav-list > li:nth-child(2).active ~ .active-bar {
+  transform: translateY(calc(var(--item-height) + var(--gap)));
+}
+
+.nav-list > li:nth-child(3).active ~ .active-bar {
+  transform: translateY(calc((var(--item-height) * 2 + var(--gap) * 2)));
+}
+
+.nav-list > li:nth-child(4).active ~ .active-bar {
+  transform: translateY(calc((var(--item-height) * 3 + var(--gap) * 3)));
+}
